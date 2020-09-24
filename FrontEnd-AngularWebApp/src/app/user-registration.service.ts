@@ -13,6 +13,6 @@ export class UserRegistrationService {
   // tslint:disable-next-line:typedef
   public doRegistration(user: User) {
     console.log(JSON.stringify(user));
-    return this.http.post('http://localhost:8080/signup', user);
+    return this.http.post('http://localhost:8090/signup', user);
   }
 }
