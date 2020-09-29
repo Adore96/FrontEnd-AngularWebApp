@@ -14,7 +14,7 @@ export class SearchDeleteComponent implements OnInit {
 
   users: any;
   id: number;
-  greeting = {};
+  greeting: any;
 
   userId: string;
 
