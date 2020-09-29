@@ -1,14 +1,19 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from './user';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserRegistrationService {
 
-  constructor(private http: HttpClient) {
+  authenticated = false;
+
+constructor(private http: HttpClient) {
   }
+
 
   // tslint:disable-next-line:typedef
   public doRegistration(user: User) {

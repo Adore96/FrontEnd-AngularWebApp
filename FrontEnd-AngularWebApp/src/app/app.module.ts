@@ -8,18 +8,27 @@ import {SearchDeleteComponent} from './search-delete/search-delete.component';
 import {UserRegistrationService} from './user-registration.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    SearchDeleteComponent
+    SearchDeleteComponent,
+    PageNotFoundComponentComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+  ],
+  entryComponents: [
+    RegistrationComponent
   ],
   providers: [UserRegistrationService],
   bootstrap: [AppComponent]

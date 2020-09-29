@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserRegistrationService} from '../user-registration.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthenticationService} from '../services/authentication.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-search-delete',
@@ -8,9 +11,35 @@ import {UserRegistrationService} from '../user-registration.service';
 })
 
 export class SearchDeleteComponent implements OnInit {
-  users: any;
 
-  constructor(private service: UserRegistrationService) {
+  users: any;
+  id: number;
+  greeting = {};
+
+  userId: string;
+
+  constructor(
+    private app: AuthenticationService,
+    private service: UserRegistrationService,
+    public router: Router,
+    public route: ActivatedRoute,
+    private http: HttpClient,
+  ) {
+    http.get('resource').subscribe(data => this.greeting = data);
+  }
+
+  // tslint:disable-next-line:typedef
+  public deleteUser(id: number) {
+    const resp = this.service.DeleteStudent(id);
+    resp.subscribe((data) => this.users = data);
+  }
+
+  // tslint:disable-next-line:typedef
+  public SearchUser() {
+    console.log(this.userId);
+    this.router.navigate(['home'], {relativeTo: this.route});
+    // const resp = this.service.findById(this.id);
+    // resp.subscribe((data) => this.users = data);
   }
 
   ngOnInit(): void {
@@ -18,4 +47,8 @@ export class SearchDeleteComponent implements OnInit {
     resp.subscribe((data) => this.users = data);
   }
 
+  // tslint:disable-next-line:typedef
+  authenticated() {
+    return this.app.authenticated;
+  }
 }

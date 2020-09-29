@@ -1,20 +1,31 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserRegistrationService} from '../user-registration.service';
 import {User} from '../user';
+import {AuthenticationService} from '../services/authentication.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
   user: User = new User('', '', '', '', 0);
   message: any;
+  greeting = {};
 
-  constructor(private service: UserRegistrationService) {
+  constructor(
+    private service: UserRegistrationService,
+    private app = AuthenticationService,
+    private httpClient = HttpClient
+  ) {
+    // @ts-ignore
+    this.httpClient.get('resource').subscribe(data => this.greeting = data);
   }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line:typedef
+  authenticated() {
+    return this.app.authenticated;
   }
 
   // tslint:disable-next-line:typedef
