@@ -11,10 +11,10 @@
 <body>
 
 <div class="main">
-  <p align="center" class="sign">Sign in</p>
-  <form class="form1">
+  <p align="center" class="sign">Login</p>
+  <form class="form1" method="post" action="login">
     <input
-      [(ngModel)]="credentials.username"
+      [(ngModel)]="username"
       align="center"
       class="un"
       id="username"
@@ -23,7 +23,7 @@
       type="text"
     />
     <input
-      [(ngModel)]="credentials.password"
+      [(ngModel)]="password"
       align="center"
       class="pass"
       id="password"

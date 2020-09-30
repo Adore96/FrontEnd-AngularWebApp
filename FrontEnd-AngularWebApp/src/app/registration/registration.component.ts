@@ -23,11 +23,6 @@ export class RegistrationComponent {
   }
 
   // tslint:disable-next-line:typedef
-  // authenticated() {
-  //   return this.app.authenticated;
-  // }
-
-  // tslint:disable-next-line:typedef
   public registerNow() {
     console.log(JSON.stringify(this.user));
     const resp = this.service.doRegistration(this.user);

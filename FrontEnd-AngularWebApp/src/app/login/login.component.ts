@@ -9,24 +9,22 @@ import {AuthenticationService} from '../services/authentication.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  credentials = {username: '', password: ''};
+  username: string;
+  password: string;
+  message: any;
 
   constructor(
-    private app: AuthenticationService,
-    private http: HttpClient,
+    private authenticationService: AuthenticationService,
+    private httpClient: HttpClient,
     private router: Router
   ) {
   }
 
   // tslint:disable-next-line:typedef
   login() {
-    console.log('login called');
-    console.log(this.credentials);
-    // const resp = this.app.doLogin(this.credentials);
-    this.app.authenticate(this.credentials, () => {
-      this.router.navigateByUrl('/main');
-      console.log('App authenticated :', this.app.authenticated);
+    const response = this.authenticationService.authenticate(this.username, this.password);
+    response.subscribe(data => {
+      console.log(data);
     });
-    return false;
   }
 }

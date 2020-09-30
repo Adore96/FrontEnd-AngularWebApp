@@ -9,7 +9,7 @@ import {LogoutComponent} from './logout/logout.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login', pathMatch: 'full'
+    redirectTo: 'main', pathMatch: 'full'
   },
   {
     path: 'login',
