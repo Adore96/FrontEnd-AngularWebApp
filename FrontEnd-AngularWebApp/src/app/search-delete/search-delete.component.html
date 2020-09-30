@@ -54,7 +54,7 @@
   <a href="#contact">Contact</a>
   <div class="search-container">
     <form>
-      <input id="userId" name="userId" [(ngModel)]="userId" placeholder="Search.." type="text">
+      <input [(ngModel)]="userId" id="userId" name="userId" placeholder="Search.." type="text">
       <button (click)="SearchUser()"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -129,7 +129,7 @@
         </div>
         <div class="modal-footer">
           <input class="btn btn-default" data-dismiss="modal" type="button" value="Cancel">
-          <input class="btn btn-danger" type="submit" value="Logout" routerLink="/logout">
+          <input class="btn btn-danger" routerLink="/logout" type="submit" value="Logout">
         </div>
       </form>
     </div>

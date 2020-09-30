@@ -15,7 +15,6 @@ export class SearchDeleteComponent implements OnInit {
   users: any;
   id: number;
   greeting: any;
-
   userId: string;
 
   constructor(
@@ -51,4 +50,5 @@ export class SearchDeleteComponent implements OnInit {
   authenticated() {
     return this.app.authenticated;
   }
+
 }

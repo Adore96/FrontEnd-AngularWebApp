@@ -8,10 +8,11 @@ import {SearchDeleteComponent} from './search-delete/search-delete.component';
 import {UserRegistrationService} from './user-registration.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
+import {PageNotFoundComponentComponent} from './page-not-found-component/page-not-found-component.component';
+import {LoginComponent} from './login/login.component';
+import {LogoutComponent} from './logout/logout.component';
 import {RouterModule} from '@angular/router';
+import {AuthenticationService} from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {RouterModule} from '@angular/router';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [UserRegistrationService],
+  providers: [UserRegistrationService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
