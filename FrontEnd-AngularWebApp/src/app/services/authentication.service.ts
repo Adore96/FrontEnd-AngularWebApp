@@ -13,7 +13,7 @@ export class AuthenticationService {
   authenticate(username: string, password: string) {
     console.log(username, password);
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
-    return this.http.get('http://localhost:8090/login?username=' + username + '&password=' + password, {
+    return this.http.post('http://localhost:8090/login?username=' + username + '&password=' + password, {
        responseType: 'text' as 'json'
     });
   }

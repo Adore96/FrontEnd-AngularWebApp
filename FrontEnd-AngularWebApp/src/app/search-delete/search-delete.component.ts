@@ -15,7 +15,7 @@ export class SearchDeleteComponent implements OnInit {
   users: any;
   id: number;
   greeting: any;
-  userId: string;
+  userId: any;
 
   constructor(
     private app: AuthenticationService,
@@ -37,18 +37,15 @@ export class SearchDeleteComponent implements OnInit {
   public SearchUser() {
     console.log(this.userId);
     this.router.navigate(['home'], {relativeTo: this.route});
-    // const resp = this.service.findById(this.id);
-    // resp.subscribe((data) => this.users = data);
+    const resp = this.service.findById(this.id);
+    resp.subscribe((data) => {
+      this.users = data;
+      console.log(data);
+    });
   }
 
   ngOnInit(): void {
     const resp = this.service.findAllUsers();
     resp.subscribe((data) => this.users = data);
   }
-
-  // tslint:disable-next-line:typedef
-  authenticated() {
-    return this.app.authenticated;
-  }
-
 }

@@ -7,7 +7,7 @@ import {RegistrationComponent} from './registration/registration.component';
 import {SearchDeleteComponent} from './search-delete/search-delete.component';
 import {UserRegistrationService} from './user-registration.service';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PageNotFoundComponentComponent} from './page-not-found-component/page-not-found-component.component';
 import {LoginComponent} from './login/login.component';
 import {LogoutComponent} from './logout/logout.component';
@@ -23,13 +23,14 @@ import {AuthenticationService} from './services/authentication.service';
     LoginComponent,
     LogoutComponent
   ],
-  imports: [
-    RouterModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-  ],
+    imports: [
+        RouterModule,
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
   providers: [UserRegistrationService, AuthenticationService],
   bootstrap: [AppComponent]
 })

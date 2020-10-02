@@ -13,6 +13,7 @@ export class RegistrationComponent {
   user: User = new User('', '', '', '', 0);
   message: any;
   greeting = {};
+  myform: any;
 
   constructor(
     private service: UserRegistrationService,
@@ -24,8 +25,11 @@ export class RegistrationComponent {
 
   // tslint:disable-next-line:typedef
   public registerNow() {
-    console.log(JSON.stringify(this.user));
-    const resp = this.service.doRegistration(this.user);
-    resp.subscribe((data) => this.message = data);
-  }
+    // if (this.myform.valid()) {
+      console.log(JSON.stringify(this.user));
+      const resp = this.service.doRegistration(this.user);
+      resp.subscribe((data) => this.message = data);
+      this.myform.reset();
+    }
+  // }
 }
