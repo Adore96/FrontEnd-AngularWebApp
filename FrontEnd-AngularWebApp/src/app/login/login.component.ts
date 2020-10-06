@@ -24,7 +24,7 @@ export class LoginComponent {
   login() {
     const response = this.authenticationService.authenticate(this.username, this.password);
     response.subscribe(data => {
-      console.log(data);
+      console.log(data + '===========');
     });
   }
 }
